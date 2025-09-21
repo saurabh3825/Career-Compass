@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Compass - AI-Powered Career Guidance</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="career-exploration-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="home_page.html" class="nav-brand">
+                <i class="fas fa-compass"></i>
+                <span>Career Compass</span>
+            </a>
+            <div class="nav-menu">
+                <a href="home_page.html" class="nav-link active">Home</a>
+                <a href="resume-builder.html" class="nav-link">Resume Builder</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="nav-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="main-search-bar" placeholder="Search careers...">
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+                <button id="open-login-modal" class="btn-primary nav-login-btn">
+                    <i class="fas fa-user"></i>
+                    <span>Login</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="container text-center">
+                <h1 class="hero-title">Find Your True North with AI Career Guidance</h1>
+                <p class="hero-subtitle">Upload your resume or build one from scratch to receive a personalized career roadmap powered by AI.</p>
+                <div class="upload-area">
+                    <label for="resume-upload" class="upload-box">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <span id="upload-label-text"><b>Click to upload</b> or drag and drop your resume</span>
+                        <span class="upload-box-subtext">(PDF, DOCX)</span>
+                    </label>
+                    <input type="file" id="resume-upload" accept=".pdf,.doc,.docx" class="hidden-input">
+                    <button id="analyze-button" class="btn-primary btn-large" disabled>Analyze My Career Path</button>
+                    <div id="file-status" class="file-status"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Your Journey in 3 Simple Steps</h2>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <h4><i class="fas fa-file-arrow-up"></i> 1. Provide Your Resume</h4>
+                        <p>Upload your existing resume or create a new one using our powerful builder.</p>
+                    </div>
+                    <div class="career-card">
+                        <h4><i class="fas fa-robot"></i> 2. Get AI Analysis</h4>
+                        <p>Our AI analyzes your skills, experience, and goals against millions of data points.</p>
+                    </div>
+                    <div class="career-card">
+                        <h4><i class="fas fa-road"></i> 3. Receive Your Roadmap</h4>
+                        <p>Get a clear, actionable career roadmap with recommended jobs, skills, and courses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Unlock Your Full Potential</h2>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <h4><i class="fas fa-brain"></i> AI-Powered Insights</h4>
+                        <p>Go beyond simple job matching. Our AI identifies your unique strengths and hidden opportunities.</p>
+                    </div>
+                    <div class="career-card">
+                        <h4><i class="fas fa-file-invoice"></i> Expert Resume Builder</h4>
+                        <p>Create ATS-friendly resumes that get noticed by recruiters with our intuitive builder.</p>
+                    </div>
+                    <div class="career-card">
+                        <h4><i class="fas fa-lightbulb"></i> Skill Gap Analysis</h4>
+                        <p>Discover the exact skills you need to learn to land your dream job, and where to learn them.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Exploration Section -->
+        <section class="career-exploration-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-globe-americas"></i>
+                        Explore Career Paths
+                    </h2>
+                    <p class="section-subtitle">Discover your ideal career direction with our comprehensive career exploration tools</p>
+                </div>
+
+                <div class="career-categories-grid">
+                    <!-- Technology -->
+                    <div class="career-category-card" data-category="technology">
+                        <div class="category-header">
+                            <div class="category-icon technology">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Technology</h3>
+                        </div>
+                        <div class="category-jobs">
+                            <div class="job-tags">
+                                <span class="job-tag">AI/ML Engineer</span>
+                                <span class="job-tag">Web Developer</span>
+                                <span class="job-tag">Cloud Architect</span>
+                                <span class="job-tag">Data Scientist</span>
+                                <span class="job-tag">DevOps Engineer</span>
+                                <span class="job-tag">Cybersecurity Analyst</span>
+                                <span class="job-tag">Mobile Developer</span>
+                                <span class="job-tag">UX Engineer</span>
+                            </div>
+                        </div>
+                        <div class="category-footer">
+                            <button class="btn-category-select" onclick="selectCareerCategory('technology')">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Tech Careers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Business -->
+                    <div class="career-category-card" data-category="business">
+                        <div class="category-header">
+                            <div class="category-icon business">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Business</h3>
+                        </div>
+                        <div class="category-jobs">
+                            <div class="job-tags">
+                                <span class="job-tag">Marketing Manager</span>
+                                <span class="job-tag">Business Analyst</span>
+                                <span class="job-tag">Entrepreneur</span>
+                                <span class="job-tag">Project Manager</span>
+                                <span class="job-tag">Sales Director</span>
+                                <span class="job-tag">Operations Manager</span>
+                                <span class="job-tag">Financial Analyst</span>
+                                <span class="job-tag">HR Manager</span>
+                            </div>
+                        </div>
+                        <div class="category-footer">
+                            <button class="btn-category-select" onclick="selectCareerCategory('business')">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Business Careers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Design -->
+                    <div class="career-category-card" data-category="design">
+                        <div class="category-header">
+                            <div class="category-icon design">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Design</h3>
+                        </div>
+                        <div class="category-jobs">
+                            <div class="job-tags">
+                                <span class="job-tag">UI/UX Designer</span>
+                                <span class="job-tag">Graphic Artist</span>
+                                <span class="job-tag">Product Designer</span>
+                                <span class="job-tag">Art Director</span>
+                                <span class="job-tag">Brand Designer</span>
+                                <span class="job-tag">Motion Designer</span>
+                                <span class="job-tag">Design Systems</span>
+                                <span class="job-tag">Creative Director</span>
+                            </div>
+                        </div>
+                        <div class="category-footer">
+                            <button class="btn-category-select" onclick="selectCareerCategory('design')">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Design Careers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Science -->
+                    <div class="career-category-card" data-category="science">
+                        <div class="category-header">
+                            <div class="category-icon science">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>Science</h3>
+                        </div>
+                        <div class="category-jobs">
+                            <div class="job-tags">
+                                <span class="job-tag">Biotechnologist</span>
+                                <span class="job-tag">Data Scientist</span>
+                                <span class="job-tag">Researcher</span>
+                                <span class="job-tag">Lab Technician</span>
+                                <span class="job-tag">Clinical Researcher</span>
+                                <span class="job-tag">Environmental Scientist</span>
+                                <span class="job-tag">Pharmaceutical</span>
+                                <span class="job-tag">Quality Control</span>
+                            </div>
+                        </div>
+                        <div class="category-footer">
+                            <button class="btn-category-select" onclick="selectCareerCategory('science')">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Science Careers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Healthcare -->
+                    <div class="career-category-card" data-category="healthcare">
+                        <div class="category-header">
+                            <div class="category-icon healthcare">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Healthcare</h3>
+                        </div>
+                        <div class="category-jobs">
+                            <div class="job-tags">
+                                <span class="job-tag">Doctor</span>
+                                <span class="job-tag">Nurse</span>
+                                <span class="job-tag">Medical Researcher</span>
+                                <span class="job-tag">Healthcare Admin</span>
+                                <span class="job-tag">Physical Therapist</span>
+                                <span class="job-tag">Pharmacist</span>
+                                <span class="job-tag">Medical Assistant</span>
+                                <span class="job-tag">Healthcare IT</span>
+                            </div>
+                        </div>
+                        <div class="category-footer">
+                            <button class="btn-category-select" onclick="selectCareerCategory('healthcare')">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Healthcare Careers
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Emerging Fields -->
+                    <div class="career-category-card" data-category="emerging">
+                        <div class="category-header">
+                            <div class="category-icon emerging">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Emerging Fields</h3>
+                        </div>
+                        <div class="category-jobs">
+                            <div class="job-tags">
+                                <span class="job-tag">Cybersecurity</span>
+                                <span class="job-tag">Sustainability</span>
+                                <span class="job-tag">Space Tech</span>
+                                <span class="job-tag">Renewable Energy</span>
+                                <span class="job-tag">Blockchain</span>
+                                <span class="job-tag">AR/VR Developer</span>
+                                <span class="job-tag">Quantum Computing</span>
+                                <span class="job-tag">Bioinformatics</span>
+                            </div>
+                        </div>
+                        <div class="category-footer">
+                            <button class="btn-category-select" onclick="selectCareerCategory('emerging')">
+                                <i class="fas fa-arrow-right"></i>
+                                Explore Emerging Careers
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Path Finder -->
+                <div class="career-path-finder">
+                    <div class="path-finder-content">
+                        <h3>Not sure which path to choose?</h3>
+                        <p>Take our quick career assessment to get personalized recommendations</p>
+                        <button class="btn-primary" onclick="startCareerAssessment()">
+                            <i class="fas fa-compass"></i>
+                            Find My Career Path
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="home_page.html" class="nav-brand">
+                        <i class="fas fa-compass"></i>
+                        <span>Career Compass</span>
+                    </a>
+                    <p>Navigate your career journey with confidence.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@careercompass.ai">support@careercompass.ai</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Career Compass. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-container"></div>
+    <script src="home-script.js"></script>
+    <script src="modal.js"></script>
+    <script src="career-exploration-interactions.js"></script>
+
+</body>
+</html>
